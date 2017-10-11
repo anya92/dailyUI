@@ -45,7 +45,7 @@ class App extends Component {
         	}
         </div>
         <footer>
-        	<i className="fa fa-code" aria-hidden="true"/> with <i class="fa fa-heart" aria-hidden="true" /> by <a href="https://github.com/anya92/dailyUI" target="_blank">anya92</a>
+        	<i className="fa fa-code" aria-hidden="true"/> with <i className="fa fa-heart" aria-hidden="true" /> by <a href="https://github.com/anya92/dailyUI" target="_blank">anya92</a>
         </footer>
       </div>
 		);

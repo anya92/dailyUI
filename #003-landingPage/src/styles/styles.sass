@@ -1,0 +1,205 @@
+$tablet-width: 576px
+$desktop-width: 992px
+
+@mixin small
+	@media (max-width: #{$desktop-width}) 
+		@content
+
+@mixin tablet 
+  @media (min-width: #{$tablet-width}) 
+    @content
+
+
+@mixin desktop 
+  @media (min-width: #{$desktop-width}) 
+    @content
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900')
+
+html
+	min-height: 100%
+body
+	font-family: 'Lato'
+	color: #fff
+
+.image-container
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	z-index: 0
+
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		opacity: 0.9
+
+.navbar-custom
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 60px
+	list-style: none
+	
+	@include desktop
+		display: flex
+		justify-content: space-between
+
+	&__logo
+		width: 140px
+		height: 60px
+		margin-top: 10px
+		margin-left: 10px
+		display: inline-block
+			
+		@include tablet
+			width: 180px
+			margin-left: 40px
+
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+	&__menu
+		width: 28px
+		height: 20px
+		position: absolute
+		top: 10px
+		right: 20px
+		cursor: pointer
+		margin-top: 10px
+
+		@include desktop
+			display: none
+
+		&::after, &::before
+			content: ' '
+			width: 100%
+			height: 2px
+			background-color: #fff
+			position: absolute
+		
+		&::after
+			top: 0
+
+		&::before
+			bottom: 0		
+
+		&__middle
+			width: 100%
+			height: 2px
+			background-color: #fff
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+
+	&__middle
+		display: none
+		
+		div
+			display: inline-block
+			margin: 15px
+			cursor: pointer
+
+		@include desktop
+			display: flex
+			align-items: center
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+
+			&__active
+				border-bottom: 2px solid crimson
+
+	&__right
+		display: none
+		font-weight: 900
+		color: crimson
+		margin-right: 40px
+		cursor: pointer
+
+		@include desktop
+			display: flex
+			align-items: center
+
+	&.open
+		@include small
+			height: 340px
+			background-color: #333
+			z-index: 2
+			flex-direction: column
+			
+			.navbar-custom
+				&__middle
+					display: flex
+					flex-direction: column
+					text-align: center
+					div
+						display: block
+				&__right
+					display: block
+					width: 100%
+					text-align: center			
+
+.content
+	position: absolute
+	line-height: 100%
+	top: 200px
+	font-weight: 900
+	font-size: 2.8rem
+	width: 60%
+
+	@include tablet
+		font-size: 4rem
+		top: 220px
+	@include desktop
+		top: 250px
+		font-size: 5rem
+
+	span
+		font-size: 1.8rem
+		padding: 10px
+		line-height: 100px
+		border: 2px solid crimson 
+		@include tablet
+			font-size: 2.5rem
+		@include desktop
+			line-height: 150px
+			font-size: 3.2rem
+
+.social
+	position: absolute
+	bottom: 30px
+	left: 50%
+	transform: translateX(-50%)
+	font-size: 2.2rem
+	.fa
+		margin: 5px
+		cursor: pointer
+		transition: all 0.3s ease-out 
+		&:hover
+			color: crimson
+			transform: scale(1.1)
+
+	@include desktop
+		left: auto
+		right: 40px
+		font-size: 2.5rem
+
+footer
+	position: absolute
+	bottom: 4px
+	left: 50%
+	transform: translateX(-50%)
+	font-size: 0.9rem
+	margin-top: 20px
+	a 
+		color: #fff
+
+
+					
